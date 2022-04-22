@@ -24,15 +24,16 @@ public class MapUtilitiesTest {
 	    hashmap5.put("Cane", "Dogood");
 	    hashmap5.put("Radio", "Geeks");
 	    
+	    MapUtilities class1 = new MapUtilities();
 	    //testing the two empty values
-	    int output3 = commonKeyValuePairs(hashmap6, hashmap7);
+	    int output3 = class1.commonKeyValuePairs(hashmap6, hashmap7);
 	    assertEquals(String.valueOf(output3), String.valueOf(0));
 	    assertNotEquals(String.valueOf(output3), String.valueOf(3));
 	    
 	    
 	    //testing an empty and not empty hashmap
-	    int output4 = commonKeyValuePairs(hashmap6, hashmap4);
-	    int output5 = commonKeyValuePairs(hashmap3, hashmap7);
+	    int output4 = class1.commonKeyValuePairs(hashmap6, hashmap4);
+	    int output5 = class1.commonKeyValuePairs(hashmap3, hashmap7);
 	    assertEquals(String.valueOf(output4), String.valueOf(0));
 	    assertNotEquals(String.valueOf(output4), String.valueOf(5));
 	    assertEquals(String.valueOf(output5), String.valueOf(0));
@@ -41,7 +42,7 @@ public class MapUtilitiesTest {
 	    
 	    //testing two null values
 	    Exception exception = assertThrows(IntegerSetException.class, () ->  {
-	    	commonKeyValuePairs(hashmap1, hashmap2);
+	    	class1.commonKeyValuePairs(hashmap1, hashmap2);
 		});
 		String expectedMessage = "Either or both hashmaps is null.";
 		String actualMessage = exception.getMessage();
@@ -50,14 +51,14 @@ public class MapUtilitiesTest {
 		
 		//testing when just one hasmap is null
 		Exception exception1 = assertThrows(IntegerSetException.class, () ->  {
-	    	commonKeyValuePairs(hashmap1, hashmap5);
+			class1.commonKeyValuePairs(hashmap1, hashmap5);
 		});
 		String expectedMessage1 = "Either or both hashmaps is null.";
 		String actualMessage1 = exception.getMessage();
 		assertTrue(actualMessage1.contains(expectedMessage1));
 		
 		Exception exception2 = assertThrows(IntegerSetException.class, () ->  {
-	    	commonKeyValuePairs(hashmap5, hashmap2);
+			class1.commonKeyValuePairs(hashmap5, hashmap2);
 		});
 		String expectedMessage2 = "Either or both hashmaps is null.";
 		String actualMessage2 = exception.getMessage();
@@ -65,8 +66,8 @@ public class MapUtilitiesTest {
 	    
 	    
 	    //other test case
-	    int output1 = commonKeyValuePairs(hashmap3, hashmap4);
-	    int output2 = commonKeyValuePairs(hashmap3, hashmap5);
+	    int output1 = class1.commonKeyValuePairs(hashmap3, hashmap4);
+	    int output2 = class1.commonKeyValuePairs(hashmap3, hashmap5);
 	    assertEquals(String.valueOf(output1), String.valueOf(2));
 	    assertNotEquals(String.valueOf(output1), String.valueOf(5));
 	    assertEquals(String.valueOf(output2), String.valueOf(0));
